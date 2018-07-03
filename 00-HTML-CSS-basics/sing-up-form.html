@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<title>Sing up form</title>
+	<meta name="description" content="Sign up form with names, email,birthday, date , sport and bio">
+	<meta name="keywords" content="signUp,form,topic0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<h1>Sign Up</h1>
+	<form>
+		<label for="firtsName">First Name: </label>
+		<input type="text" name="firstName" placeholder="First name" id="firtsName" required>
+		<label for="lastName">Last Name: </label>
+		<input type="text" name="lastName" placeholder="Last name" id="lastName" required>
+		<label for="email">Email: </label>
+		<input type="email" name="email" placeholder="Email" id="email" required>
+		<label for="birthday">Birthday: </label>
+		<input type="date" name="birthday" id="birthday" required>
+		<label for="favoriteSport">Favorite Sport: </label>
+		<select name="favoriteSport" id="favoriteSport">
+            <option value="Soccer">Soccer</option>
+            <option value="Basketball">Baskteball</option>
+            <option value="Tennis">Tennis</option>
+            <option value="Other">Other</option>
+        </select>
+        <br>
+        <label for="bio">Bio: </label><br>
+        <textarea rows="5" cols="30" placeholder="Add a small bio" id="bio" required></textarea>
+        <br>
+        <input type="submit" name="submit" value="Submit">
+        <input type="reset" name="clear" value="Clear">
+	</form>
+</body>
+</html>
