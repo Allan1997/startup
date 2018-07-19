@@ -1,4 +1,3 @@
-(function(){ 
 function showHiddenSec(){
 	let hidden = document.getElementById('hidden');
 	hidden.style.display = "block";
@@ -21,4 +20,28 @@ function randomJoke (){
 	}
 	xhr.send();
 }
-}())
+	
+function ajaxCall (method, url){
+	let promise = new Promise (function(resolve,reject){
+		let xhr = new XMLHttpRequest ();
+		xhr.open(method,url,true);
+		xhr.onreadystatechange = function(){
+			if (xhr.readyState == 4 && xhr.status == 200){
+				console.log("Successful Request (ajax call)");
+				let jsonObject = JSON.parse(xhr.response);
+				resolve(jsonObject);
+			}else{
+				console.log("Error in request (ajax call)");
+				reject(xhr.status);
+			}
+		}
+		xhr.send();
+	});
+	return promise;
+}
+
+function getJokePromise (){
+	let result = ajaxCall("GET","http://api.icndb.com/jokes/random");
+	console.log(result); // borrar esto 
+	document.getElementById("joke").innerHTML = result.value.joke;
+}
